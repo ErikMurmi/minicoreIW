@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+
+
+form{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+label{
+  font-weight: bold;
+}
+
+#clientes{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
