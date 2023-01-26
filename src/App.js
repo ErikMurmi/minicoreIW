@@ -1,9 +1,7 @@
 import './App.css';
 import { useState, useEffect} from 'react';
-import { Contratos } from './data';
 import Cliente from './Components/Cliente';
-import Contrato from './Components/Contrato';
-import { getContratos } from './Controllers/ContratosController';
+//import Contrato from './Components/Contrato';
 import { getTotales } from './Controllers/ClientesController';
 
 function App() {
@@ -13,17 +11,6 @@ function App() {
     FechaInicio:"",
     FechaFin:""
   })
-
-  const [contratos,setContratos] = useState(Contratos) 
-
-  const [clientes,setClientes] = useState(
-    {
-      UDLA:0,
-      SUPERMAXI:0,
-      CIGARRA:0,
-      WHATEVER:0
-    }
-  )
 
   const [totales,setTotales] = useState([])
 
@@ -54,19 +41,20 @@ function App() {
     <div className="App">
       <h1>Mini-Core</h1>
       <p>Escoge el rango de fecha</p>
-      <button onClick={calculateContratos}>Traer info</button>
-        <form>
-          <div style={{display:"flex",flexDirection:"column",width:"fit-content"}}>
-            <label>Fecha Inicio</label>
-            <input name="FechaInicio" type="date" onChange={handleChange} />
-          </div>
-          <div style={{display:"flex",flexDirection:"column",width:"fit-content"}}>
-            <label>Fecha Fin</label>
-            <input name="FechaFin" type="date" onChange={handleChange}/>
-          </div>
-        </form>
+      <form>
+        <div style={{display:"flex",flexDirection:"column",width:"fit-content"}}>
+          <label>Fecha Inicio</label>
+          <input name="FechaInicio" type="date" onChange={handleChange} />
+        </div>
+        <div style={{display:"flex",flexDirection:"column",width:"fit-content"}}>
+          <label>Fecha Fin</label>
+          <input name="FechaFin" type="date" onChange={handleChange}/>
+        </div>
+      </form>
+      <h5>Monto Total</h5>
+      <p>{`${totales.reduce((acc, cur) => acc + cur.Total, 0)}$`}</p>
       <div className='page-container'>
-        <div className='section'>
+        {/* <div className='section'>
           <div style={{overflowY:"visible",borderColor:"red"}}>
           {
             // contratos.map(contrato=>console.log(contrato.Nombre))
@@ -76,7 +64,7 @@ function App() {
             </>)
           }
           </div>
-        </div>
+        </div> */}
         <div className='section' id='clientes'>
         {totales.map((total) =><>
           <Cliente cliente={total} color={randomHexColor()}/>

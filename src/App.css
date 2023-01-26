@@ -49,6 +49,11 @@ label{
 
 #clientes{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   margin-top: 20px;
+}
+
+h5,p,h4{
+  margin: 0;
 }
