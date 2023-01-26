@@ -1,0 +1,14 @@
+P:\md-login\api\api\obj\Release\net7.0\PubTmp\Out\api.exe
+P:\md-login\api\api\obj\Release\net7.0\PubTmp\Out\appsettings.Development.json
+P:\md-login\api\api\obj\Release\net7.0\PubTmp\Out\appsettings.json
+P:\md-login\api\api\obj\Release\net7.0\PubTmp\Out\api.dll
+P:\md-login\api\api\obj\Release\net7.0\PubTmp\Out\api.deps.json
+P:\md-login\api\api\obj\Release\net7.0\PubTmp\Out\api.runtimeconfig.json
+P:\md-login\api\api\obj\Release\net7.0\PubTmp\Out\api.pdb
+P:\md-login\api\api\obj\Release\net7.0\PubTmp\Out\Microsoft.AspNetCore.OpenApi.dll
+P:\md-login\api\api\obj\Release\net7.0\PubTmp\Out\Microsoft.OpenApi.dll
+P:\md-login\api\api\obj\Release\net7.0\PubTmp\Out\Newtonsoft.Json.dll
+P:\md-login\api\api\obj\Release\net7.0\PubTmp\Out\Npgsql.dll
+P:\md-login\api\api\obj\Release\net7.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+P:\md-login\api\api\obj\Release\net7.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+P:\md-login\api\api\obj\Release\net7.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
