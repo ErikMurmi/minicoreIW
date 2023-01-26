@@ -4,6 +4,7 @@ import { Contratos } from './data';
 import Cliente from './Components/Cliente';
 import Contrato from './Components/Contrato';
 import { getContratos } from './Controllers/ContratosController';
+import { getTotales } from './Controllers/ClientesController';
 
 function App() {
 
@@ -24,29 +25,23 @@ function App() {
     }
   )
 
+  const [totales,setTotales] = useState([])
 
-    useEffect(()=>{
-      if(rango.FechaInicio && rango.FechaFin){
-        console.log('Rango: ',rango)
-        calculateContratos()
-      }
-    },[rango])
 
-  const calculateContratos=()=>{
-    //const ctrs = Contratos.filter(cliente=> cliente.Fecha >= rango.FechaInicio && cliente.Fecha<= rango.FechaFin)
-    const ctrs=[]
-    for(var ctr of Contratos){
-      if(ctr.Fecha.getTime() >= rango.FechaInicio.getTime() && ctr.Fecha.getTime()<= rango.FechaFin.getTime()){
-        ctrs.push(ctr)
-      }
+  useEffect(()=>{
+    if(rango.FechaInicio && rango.FechaFin){
+      console.log('Rango: ',rango)
+      calculateContratos()
     }
-    console.log('Contratos filtro: ', ctrs)
-    setContratos(ctrs)
+  },[rango])
+
+  const calculateContratos=async()=>{
+    setTotales(await getTotales(rango.FechaInicio,rango.FechaFin))
   }
 
   const handleChange = (e) => {
     const { value, name } = e.target
-    setRango({ ...rango, [name]: new Date(value) })
+    setRango({ ...rango, [name]: value})
     console.log('Nuevo rango ', rango)
   }
 
@@ -59,7 +54,7 @@ function App() {
     <div className="App">
       <h1>Mini-Core</h1>
       <p>Escoge el rango de fecha</p>
-      <button onClick={()=>getContratos()}>Traer info</button>
+      <button onClick={calculateContratos}>Traer info</button>
         <form>
           <div style={{display:"flex",flexDirection:"column",width:"fit-content"}}>
             <label>Fecha Inicio</label>
@@ -83,8 +78,8 @@ function App() {
           </div>
         </div>
         <div className='section' id='clientes'>
-        {Object.entries(clientes).map(([key, value]) =><>
-          <Cliente cliente={{key,value}} color={randomHexColor()}/>
+        {totales.map((total) =><>
+          <Cliente cliente={total} color={randomHexColor()}/>
         </>)
         }
         </div>

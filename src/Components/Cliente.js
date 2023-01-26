@@ -6,9 +6,9 @@ export default function Cliente ({cliente,color}){
     return(
         <div style={{backgroundColor:`${color}`}}>
             <h4>
-                {cliente.key}
+                {cliente.Nombre}
             </h4>
-            <p>Total: {cliente.value}</p>
+            <p>Total: {cliente.Total}</p>
         </div>
     )
 }
